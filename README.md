@@ -18,8 +18,6 @@
 5.爱心移动的轨迹光滑,是个曲线
 ## Screenshots ##
 
-![icon01][icon01]
-![icon02][icon02]
 <img src="https://github.com/jjdxmashl/jjdxmperiscope/blob/master/screenshots/icon01.png" width="300"> 
 <img src="https://github.com/jjdxmashl/jjdxmperiscope/blob/master/screenshots/icon02.png" width="300"> 
 
