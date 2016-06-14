@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">jjdxmperiscope</string>
+
+    <!-- 随机图片数组 -->
+    <integer-array name="ivs">
+        <item>@mipmap/red</item>
+        <item>@mipmap/yellow</item>
+        <item>@mipmap/blue</item>
+    </integer-array>
+</resources>
