@@ -5,7 +5,7 @@
 ### 点赞功能 ###
 现在视频应用越来越火,Periscope火起来后,国内也出现了不少跟风者,界面几乎跟Periscope一模一样.Periscope确实不错,点赞的效果也让人眼前一亮,很漂亮.
 
-apk下载[downapk]
+[apk下载][downapk]
 ## Features ##
 1.爱心出现在底部并且水平居中
 
@@ -18,8 +18,8 @@ apk下载[downapk]
 5.爱心移动的轨迹光滑,是个曲线
 ## Screenshots ##
 
-<img src=[img1] width="300"> 
-<img src=[img1] width="300"> 
+<img src="https://github.com/jjdxmashl/jjdxmperiscope/tree/master/screenshots/icon01.png" width="300"> 
+<img src="https://github.com/jjdxmashl/jjdxmperiscope/tree/master/screenshots/icon02.png" width="300"> 
 
 ## Get Started ##
 ### 具体实现 ###
@@ -104,6 +104,4 @@ If you find any bug when using project, please report [here][issues]. Thanks for
 [github]:https://github.com/jjdxmashl/
 [project]:https://github.com/jjdxmashl/jjdxmperiscope
 [issues]:https://github.com/jjdxmashl/jjdxmperiscopeissues/new
-[downapk]:https://github.com/jjdxmashl/jjdxmperiscope/apk/app-debug.apk
-[img1]:https://github.com/jjdxmashl/jjdxmperiscope/screenshots/icon01.png
-[img2]:https://github.com/jjdxmashl/jjdxmperiscope/screenshots/icon01.png
+[downapk]:https://github.com/jjdxmashl/jjdxmperiscope/tree/master/apk/app-debug.apk
