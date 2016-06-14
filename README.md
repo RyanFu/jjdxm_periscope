@@ -18,8 +18,8 @@
 5.爱心移动的轨迹光滑,是个曲线
 ## Screenshots ##
 
-<img src="https://github.com/jjdxmashl/jjdxmperiscope/blob/master/screenshots/icon01.png" width="300"> 
-<img src="https://github.com/jjdxmashl/jjdxmperiscope/blob/master/screenshots/icon02.png" width="300"> 
+<img src="https://raw.githubusercontent.com/jjdxmashl/jjdxmperiscope/master/screenshots/icon01.png" width="300"> 
+<img src="https://raw.githubusercontent.com/jjdxmashl/jjdxmperiscope/master/screenshots/icon02.png" width="300"> 
 
 ## Get Started ##
 ### 具体实现 ###
@@ -104,6 +104,6 @@ If you find any bug when using project, please report [here][issues]. Thanks for
 [github]:https://github.com/jjdxmashl/
 [project]:https://github.com/jjdxmashl/jjdxmperiscope/
 [issues]:https://github.com/jjdxmashl/jjdxmperiscope/issues/new
-[downapk]:https://github.com/jjdxmashl/jjdxmperiscope/blob/master/apk/app-debug.apk
-[icon01]:https://github.com/jjdxmashl/jjdxmperiscope/blob/master/screenshots/icon01.png
-[icon02]:https://github.com/jjdxmashl/jjdxmperiscope/blob/master/screenshots/icon02.png
+[downapk]:https://raw.githubusercontent.com/jjdxmashl/jjdxmperiscope/master/apk/app-debug.apk
+[icon01]:https://raw.githubusercontent.com/jjdxmashl/jjdxmperiscope/master/screenshots/icon01.png
+[icon02]:https://raw.githubusercontent.com/jjdxmashl/jjdxmperiscope/master/screenshots/icon02.png
