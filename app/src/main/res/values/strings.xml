@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">jjdxmperiscope</string>
+    <string name="app_name">jjdxm_periscope</string>
 
     <!-- 随机图片数组 -->
     <integer-array name="ivs">
