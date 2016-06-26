@@ -21,6 +21,25 @@
 <img src="https://raw.githubusercontent.com/jjdxmashl/jjdxm_periscope/master/screenshots/icon01.png" width="300"> 
 <img src="https://raw.githubusercontent.com/jjdxmashl/jjdxm_periscope/master/screenshots/icon02.png" width="300"> 
 
+[demo apk下载][downapk]
+
+[下载最新版本aar][lastaar]
+
+Download or grab via Maven:
+
+	<dependency>
+	  <groupId>com.dou361.periscope</groupId>
+	  <artifactId>jjdxm-periscope</artifactId>
+	  <version>x.x.x</version>
+	</dependency>
+
+or Gradle:
+
+	compile 'com.dou361.periscope:jjdxm-periscope:x.x.x'
+
+
+jjdxm-periscope requires at minimum Java 15 or Android 4.0.
+
 ## Get Started ##
 ### 具体实现 ###
 1.自定义view的一些基础方法以及一些注意点
@@ -105,5 +124,7 @@ If you find any bug when using project, please report [here][issues]. Thanks for
 [project]:https://github.com/jjdxmashl/jjdxm_periscope/
 [issues]:https://github.com/jjdxmashl/jjdxm_periscope/issues/new
 [downapk]:https://raw.githubusercontent.com/jjdxmashl/jjdxm_periscope/master/apk/app-debug.apk
+[lastaar]:https://raw.githubusercontent.com/jjdxmashl/jjdxm_baseutils/master/release/jjdxm-periscope-1.0.0.aar
+[lastjar]:https://raw.githubusercontent.com/jjdxmashl/jjdxm_baseutils/master/release/jjdxm-periscope-1.0.0.jar
 [icon01]:https://raw.githubusercontent.com/jjdxmashl/jjdxm_periscope/master/screenshots/icon01.png
 [icon02]:https://raw.githubusercontent.com/jjdxmashl/jjdxm_periscope/master/screenshots/icon02.png
