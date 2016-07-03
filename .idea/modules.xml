@@ -3,8 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/jjdxm-periscope/library.iml" filepath="$PROJECT_DIR$/jjdxm-periscope/library.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jjdxm-periscope/jjdxm-periscope.iml" filepath="$PROJECT_DIR$/jjdxm-periscope/jjdxm-periscope.iml" />
       <module fileurl="file://$PROJECT_DIR$/jjdxm_periscope.iml" filepath="$PROJECT_DIR$/jjdxm_periscope.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jjdxm-periscope/library.iml" filepath="$PROJECT_DIR$/jjdxm-periscope/library.iml" />
     </modules>
   </component>
 </project>
