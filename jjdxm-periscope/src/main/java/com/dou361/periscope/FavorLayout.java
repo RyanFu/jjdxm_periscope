@@ -137,10 +137,13 @@ public class FavorLayout extends RelativeLayout {
         ObjectAnimator alpha = ObjectAnimator.ofFloat(target, View.ALPHA, 0.2f, 1f);
         ObjectAnimator scaleX = ObjectAnimator.ofFloat(target, View.SCALE_X, 0.2f, 1f);
         ObjectAnimator scaleY = ObjectAnimator.ofFloat(target, View.SCALE_Y, 0.2f, 1f);
+        /**位移动画*/
+//        ObjectAnimator translationX = ObjectAnimator.ofFloat(target, View.TRANSLATION_X, 0f, 0f);
+//        ObjectAnimator translationY = ObjectAnimator.ofFloat(target, View.TRANSLATION_Y, 0f, -60f);
         AnimatorSet enter = new AnimatorSet();
-        enter.setDuration(500);
+        enter.setDuration(1000);
         enter.setInterpolator(new LinearInterpolator());
-        enter.playTogether(alpha, scaleX, scaleY);
+        enter.playTogether(alpha, scaleX, scaleY);//（动画同时播放）
         enter.setTarget(target);
         return enter;
     }
@@ -152,8 +155,8 @@ public class FavorLayout extends RelativeLayout {
         AnimatorSet set = getEnterAnimtor(target);
         ValueAnimator bezierValueAnimator = getBezierValueAnimator(target);
         AnimatorSet finalSet = new AnimatorSet();
-        finalSet.playSequentially(set);
-        finalSet.playSequentially(set, bezierValueAnimator);
+//        finalSet.playSequentially(set, bezierValueAnimator);//playSequentially(动画顺序播放)
+        finalSet.playTogether(set, bezierValueAnimator);//playTogether(动画同时播放)
         finalSet.setInterpolator(interpolators[random.nextInt(4)]);//实现随机变速
         finalSet.setTarget(target);
         return finalSet;
@@ -169,7 +172,7 @@ public class FavorLayout extends RelativeLayout {
         ValueAnimator animator = ValueAnimator.ofObject(evaluator, new PointF((mWidth - dWidth) / 2, mHeight - dHeight), new PointF(random.nextInt(getWidth()), 0));//随机
         animator.addUpdateListener(new BezierListenr(target));
         animator.setTarget(target);
-        animator.setDuration(3000);
+        animator.setDuration(5000);
         return animator;
     }
 

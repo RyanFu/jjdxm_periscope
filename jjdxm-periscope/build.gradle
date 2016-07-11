@@ -9,7 +9,7 @@ ext {
     jjdxm_groupId = 'com.dou361.periscope'
     jjdxm_artifactId = 'jjdxm-periscope'
 
-    jjdxm_libraryVersion = '1.0.0'
+    jjdxm_libraryVersion = '1.0.1'
     jjdxm_libraryName = 'jjdxmperiscope'
     jjdxm_libraryDescription = 'this is a periscope library of the application'
 
