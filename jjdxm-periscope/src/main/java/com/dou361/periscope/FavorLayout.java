@@ -5,10 +5,12 @@ import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.PointF;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
@@ -24,22 +26,22 @@ import java.util.Random;
 
 /**
  * ========================================
- * <p>
+ * <p/>
  * 版 权：dou361.com 版权所有 （C） 2015
- * <p>
+ * <p/>
  * 作 者：陈冠明
- * <p>
+ * <p/>
  * 个人网站：http://www.dou361.com
- * <p>
+ * <p/>
  * 版 本：1.0
- * <p>
+ * <p/>
  * 创建日期：2016/6/13 23:29
- * <p>
+ * <p/>
  * 描 述：视频播放时用到的点赞动画
- * <p>
- * <p>
+ * <p/>
+ * <p/>
  * 修订历史：
- * <p>
+ * <p/>
  * ========================================
  */
 public class FavorLayout extends RelativeLayout {
@@ -64,30 +66,54 @@ public class FavorLayout extends RelativeLayout {
 
     public FavorLayout(Context context) {
         super(context);
+        init(context, null);
     }
 
     public FavorLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
-        TypedArray type = context.obtainStyledAttributes(attrs, R.styleable.favor_drawables);
-        try {
-            icons = getResources().obtainTypedArray(type.getResourceId(R.styleable.favor_drawables_drawables, 0));
-            size = icons.length();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        type.recycle();
-        init();
+        init(context, attrs);
     }
 
-    private void init() {
-        //初始化显示的图片
-        if (size == 0) {
-            return;
+    public FavorLayout(Context context, AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+        init(context, attrs);
+    }
+
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    public FavorLayout(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+        super(context, attrs, defStyleAttr, defStyleRes);
+        init(context, attrs);
+    }
+
+    private void init(Context context, AttributeSet attrs) {
+        if (attrs != null) {
+            TypedArray type = context.obtainStyledAttributes(attrs, R.styleable.favor_drawables);
+            try {
+                icons = getResources().obtainTypedArray(type.getResourceId(R.styleable.favor_drawables_drawables, 0));
+                size = icons.length();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            type.recycle();
+            //初始化显示的图片
+            if (size == 0) {
+                return;
+            }
+            drawables = new Drawable[size];
+            for (int i = 0; i < size; i++) {
+                drawables[i] = icons.getDrawable(i);
+            }
+        } else {
+            /**使用默认的图片*/
+            drawables = new Drawable[]{getResources().getDrawable(R.mipmap.jjdxm_icon_periscope_01),
+                    getResources().getDrawable(R.mipmap.jjdxm_icon_periscope_02),
+                    getResources().getDrawable(R.mipmap.jjdxm_icon_periscope_03),
+                    getResources().getDrawable(R.mipmap.jjdxm_icon_periscope_04),
+                    getResources().getDrawable(R.mipmap.jjdxm_icon_periscope_05)};
+            size = drawables.length;
         }
-        drawables = new Drawable[size];
-        for (int i = 0; i < size; i++) {
-            drawables[i] = icons.getDrawable(i);
-        }
+
+
         //获取图的宽高 用于后面的计算
         //注意 我这里3张图片的大小都是一样的,所以我只取了一个
         dHeight = drawables[0].getIntrinsicHeight();
@@ -137,11 +163,8 @@ public class FavorLayout extends RelativeLayout {
         ObjectAnimator alpha = ObjectAnimator.ofFloat(target, View.ALPHA, 0.2f, 1f);
         ObjectAnimator scaleX = ObjectAnimator.ofFloat(target, View.SCALE_X, 0.2f, 1f);
         ObjectAnimator scaleY = ObjectAnimator.ofFloat(target, View.SCALE_Y, 0.2f, 1f);
-        /**位移动画*/
-//        ObjectAnimator translationX = ObjectAnimator.ofFloat(target, View.TRANSLATION_X, 0f, 0f);
-//        ObjectAnimator translationY = ObjectAnimator.ofFloat(target, View.TRANSLATION_Y, 0f, -60f);
         AnimatorSet enter = new AnimatorSet();
-        enter.setDuration(1000);
+        enter.setDuration(500);
         enter.setInterpolator(new LinearInterpolator());
         enter.playTogether(alpha, scaleX, scaleY);//（动画同时播放）
         enter.setTarget(target);
@@ -155,8 +178,10 @@ public class FavorLayout extends RelativeLayout {
         AnimatorSet set = getEnterAnimtor(target);
         ValueAnimator bezierValueAnimator = getBezierValueAnimator(target);
         AnimatorSet finalSet = new AnimatorSet();
-//        finalSet.playSequentially(set, bezierValueAnimator);//playSequentially(动画顺序播放)
-        finalSet.playTogether(set, bezierValueAnimator);//playTogether(动画同时播放)
+
+        finalSet.playSequentially(set);
+        finalSet.playSequentially(set, bezierValueAnimator);//playSequentially(动画顺序播放)
+//        finalSet.playTogether(set, bezierValueAnimator);//playTogether(动画同时播放)
         finalSet.setInterpolator(interpolators[random.nextInt(4)]);//实现随机变速
         finalSet.setTarget(target);
         return finalSet;

@@ -3,10 +3,10 @@
 
     <!-- 随机图片数组 -->
     <integer-array name="ivs">
-        <item>@mipmap/icon_periscope_01</item>
-        <item>@mipmap/icon_periscope_02</item>
-        <item>@mipmap/icon_periscope_03</item>
-        <item>@mipmap/icon_periscope_04</item>
-        <item>@mipmap/icon_periscope_05</item>
+        <item>@mipmap/jjdxm_icon_periscope_01</item>
+        <item>@mipmap/jjdxm_icon_periscope_02</item>
+        <item>@mipmap/jjdxm_icon_periscope_03</item>
+        <item>@mipmap/jjdxm_icon_periscope_04</item>
+        <item>@mipmap/jjdxm_icon_periscope_05</item>
     </integer-array>
 </resources>
