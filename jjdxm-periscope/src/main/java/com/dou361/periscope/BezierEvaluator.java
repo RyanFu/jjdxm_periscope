@@ -1,10 +1,13 @@
 package com.dou361.periscope;
 
 import android.animation.TypeEvaluator;
+import android.annotation.TargetApi;
 import android.graphics.PointF;
+import android.os.Build;
 
 //我们自定义一个BezierEvaluator 实现 TypeEvaluator
 //由于我们view的移动需要控制x y 所以就传入PointF 作为参数,是不是感觉完全契合
+@TargetApi(Build.VERSION_CODES.HONEYCOMB)
 public class BezierEvaluator implements TypeEvaluator<PointF> {
 
     private PointF pointF1;//途径的两个点 

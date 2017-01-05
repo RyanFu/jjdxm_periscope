@@ -12,7 +12,6 @@ import android.graphics.PointF;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.AccelerateInterpolator;
@@ -21,6 +20,8 @@ import android.view.animation.Interpolator;
 import android.view.animation.LinearInterpolator;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+
+import com.dou361.periscope.listener.BezierListenr;
 
 import java.util.Random;
 
@@ -44,6 +45,7 @@ import java.util.Random;
  * <p/>
  * ========================================
  */
+@TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
 public class FavorLayout extends RelativeLayout {
 
     private TypedArray icons;//点赞图片
@@ -149,7 +151,6 @@ public class FavorLayout extends RelativeLayout {
         imageView.setImageDrawable(drawables[random.nextInt(size)]);
         imageView.setLayoutParams(lp);
         addView(imageView);
-        Log.v("", "add后子view数:" + getChildCount());
         Animator set = getAnimator(imageView);
         set.addListener(new AnimEndListener(imageView));
         set.start();
@@ -159,6 +160,7 @@ public class FavorLayout extends RelativeLayout {
     /**
      * 伸缩动画  我封装了一个方法  利用ObjectAnimator AnimatorSet来实现 alpha以及x,y轴的缩放功能 target就是爱心
      */
+
     private AnimatorSet getEnterAnimtor(final View target) {
         ObjectAnimator alpha = ObjectAnimator.ofFloat(target, View.ALPHA, 0.2f, 1f);
         ObjectAnimator scaleX = ObjectAnimator.ofFloat(target, View.SCALE_X, 0.2f, 1f);
@@ -217,30 +219,9 @@ public class FavorLayout extends RelativeLayout {
     }
 
     /**
-     * 动画贝塞尔曲线移动监听
-     */
-    private class BezierListenr implements ValueAnimator.AnimatorUpdateListener {
-
-        private View target;
-
-        public BezierListenr(View target) {
-            this.target = target;
-        }
-
-        @Override
-        public void onAnimationUpdate(ValueAnimator animation) {
-            //这里获取到贝塞尔曲线计算出来的的x y值 赋值给view 这样就能让爱心随着曲线走啦
-            PointF pointF = (PointF) animation.getAnimatedValue();
-            target.setX(pointF.x);
-            target.setY(pointF.y);
-            // 这里偷个懒,顺便做一个alpha动画,这样alpha渐变也完成啦
-            target.setAlpha(1 - animation.getAnimatedFraction());
-        }
-    }
-
-    /**
      * 动画结束监听
      */
+    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     private class AnimEndListener extends AnimatorListenerAdapter {
         private View target;
 
@@ -252,8 +233,7 @@ public class FavorLayout extends RelativeLayout {
         public void onAnimationEnd(Animator animation) {
             super.onAnimationEnd(animation);
             //因为不停的add 导致子view数量只增不减,所以在view动画结束后remove掉
-            removeView((target));
-            Log.v("", "removeView后子view数:" + getChildCount());
+            removeView(target);
         }
     }
 

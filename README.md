@@ -53,27 +53,29 @@ or Gradle:
 
 历史版本：
 
+	compile 'com.dou361.periscope:jjdxm-periscope:1.0.3'
 	compile 'com.dou361.periscope:jjdxm-periscope:1.0.2'
 	compile 'com.dou361.periscope:jjdxm-periscope:1.0.1'	
 	compile 'com.dou361.periscope:jjdxm-periscope:1.0.0'
 
-jjdxm-periscope requires at minimum Java 15 or Android 4.0.
+jjdxm-periscope requires at minimum Java 9 or Android 2.3.
 
 
 [架包的打包引用以及冲突解决][jaraar]
 
 ## Proguard ##
 
-根据你的混淆器配置和使用，您可能需要在你的proguard文件内配置以下内容：
-
-	-keep com.dou361.periscope.** {
-    *;
-	}
+类库中使用consumerProguardFiles属性，它指定了编译时，库自动引入的混淆规则。也就是说应用打包时候会自动的寻找库里的混淆文件，不需要手工配置了。
 
 
 [AndroidStudio代码混淆注意的问题][minify]
 
 ## Get Started ##
+
+
+	compile 'com.dou361.periscope:jjdxm-periscope:1.0.3'
+
+
 ### 具体实现 ###
 1.自定义view的一些基础方法以及一些注意点
 
@@ -120,6 +122,8 @@ jjdxm-periscope requires at minimum Java 15 or Android 4.0.
 ## More Actions ##
 
 ## ChangeLog ##
+
+2017.01.04 1.0.3版本打包，加入混淆配置降低最小版本支持
 
 ## About Author ##
 
